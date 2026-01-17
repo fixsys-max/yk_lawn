@@ -212,6 +212,24 @@
                 navLinks.classList.remove('active');
             });
         });
+
+        // Smart Header
+        let lastScrollY = window.pageYOffset;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.pageYOffset;
+
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                // Scrolling down & past header height
+                header.classList.add('header-hidden');
+            } else {
+                // Scrolling up or at the top
+                header.classList.remove('header-hidden');
+            }
+
+            lastScrollY = currentScrollY;
+        });
     </script>
 
 </body>
