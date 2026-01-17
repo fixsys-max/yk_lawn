@@ -42,6 +42,14 @@
                     </svg>
                     (614) 555-0123
                 </a>
+                <button class="mobile-menu-toggle" aria-label="Открыть меню">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
             </nav>
         </div>
     </header>
@@ -178,15 +186,31 @@
                 const scrolled = window.pageYOffset;
                 const sectionTop = parallaxSection.offsetTop;
                 const sectionSpeed = 0.5;
+                const isMobile = window.innerWidth <= 1024;
 
-                // Only animate when near viewport to save performance, and disable on mobile/tablet
-                if (window.innerWidth > 1024 && scrolled + window.innerHeight > sectionTop && scrolled < sectionTop + parallaxSection.offsetHeight + window.innerHeight) {
-                    const yPos = -(scrolled * sectionSpeed * 0.3); // Adjust 0.2 factor for strength
+                // Parallax is disabled on mobile/tablet via CSS attachment scroll + JS logic
+                if (!isMobile && scrolled + window.innerHeight > sectionTop && scrolled < sectionTop + parallaxSection.offsetHeight + window.innerHeight) {
+                    const yPos = -(scrolled * sectionSpeed * 0.3);
                     parallaxSection.style.backgroundPosition = 'center ' + yPos + 'px';
-                } else if (window.innerWidth <= 1024) {
+                } else {
                     parallaxSection.style.backgroundPosition = 'center center';
                 }
             }
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
         });
     </script>
 
