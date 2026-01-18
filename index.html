@@ -11,9 +11,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/preloader.css">
 </head>
 
 <body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
 
     <!-- Header -->
     <header>
@@ -244,6 +249,53 @@
         document.querySelectorAll('.animate-on-scroll').forEach(element => {
             observer.observe(element);
         });
+
+        // Preloader Logic
+        (function () {
+            const preloader = document.getElementById('preloader');
+            const imagesToLoad = [
+                'assets/hero_lawn.png',
+                'assets/why_us_bg.png',
+                'assets/logo.png'
+            ];
+
+            let loadedCount = 0;
+            const totalImages = imagesToLoad.length;
+
+            function imageLoaded() {
+                loadedCount++;
+                if (loadedCount >= totalImages) {
+                    removePreloader();
+                }
+            }
+
+            function removePreloader() {
+                preloader.classList.add('loaded');
+                // Remove from DOM after transition
+                setTimeout(() => {
+                    preloader.remove();
+                }, 500);
+            }
+
+            // Fallback: remove preloader if it takes too long (e.g., 5 seconds)
+            const timeout = setTimeout(removePreloader, 5000);
+
+            imagesToLoad.forEach(src => {
+                const img = new Image();
+                img.onload = imageLoaded;
+                img.onerror = imageLoaded; // Count errors as "done" to avoid getting stuck
+                img.src = src;
+            });
+
+            // Also check if everything else is loaded
+            window.addEventListener('load', () => {
+                if (loadedCount < totalImages) {
+                    // Force removal if images are taking forever but page is ready
+                    clearTimeout(timeout);
+                    removePreloader();
+                }
+            });
+        })();
     </script>
 
 </body>
