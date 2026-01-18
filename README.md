@@ -1,58 +1,61 @@
 # YK LAWN SERVICE
 
-Профессиональный лендинг для сервиса по уходу за газоном в городе Колумбус, штат Огайо. Сайт представляет услуги компании, преимущества и контактную информацию в современном, привлекательном дизайне.
+Professional landing page for a lawn care service in Columbus, Ohio. The website showcases the company's services, advantages, and contact information with a modern, attractive design.
 
-## 📋 О Проекте
+## 📋 About The Project
 
-Это одностраничный веб-сайт (Landing Page), разработанный для привлечения клиентов и предоставления информации об услугах компании YK LAWN SERVICE. Дизайн выполнен в чистом, экологичном стиле с акцентом на удобство пользователя.
+This is a single-page website (Landing Page) developed to attract customers and provide information about the services offered by YK LAWN SERVICE. The design features a clean, eco-friendly style with an emphasis on user experience.
 
-### Основные возможности
-*   **Адаптивный дизайн**: Сайт корректно отображается на всех устройствах, от мобильных телефонов до десктопов.
-*   **Интерактивные элементы**:
-    *   Плавная прокрутка к секциям.
-    *   Анимации появления элементов при скролле.
-    *   Параллакс-эффект в секции "Почему мы".
-    *   "Умная" шапка, скрывающаяся при скролле вниз и появляющаяся при скролле вверх.
-*   **Мобильное меню**: Удобная навигация для пользователей смартфонов.
+### Key Features
+*   **Responsive Design**: The site displays correctly on all devices, from mobile phones to desktops.
+*   **Interactive Elements**:
+    *   Smooth scrolling to sections.
+    *   On-scroll reveal animations.
+    *   Parallax effect in the "Why Choose Us" section.
+    *   "Smart" header that hides on scroll down and reveals on scroll up.
+*   **Image Preloader**: Prevents content flickering by showing a loading spinner until background images are ready.
+*   **Mobile Menu**: Intuitive navigation for smartphone users.
 
-## 🛠 Технологический стек
+## 🛠 Tech Stack
 
-Проект реализован с использованием классического стека веб-технологий без тяжелых фреймворков, что обеспечивает высокую скорость загрузки и простоту поддержки.
+The project is implemented using a classic web technology stack without heavy frameworks, ensuring high loading speeds and ease of maintenance.
 
-*   **HTML5**: Семантическая верстка.
+*   **HTML5**: Semantic markup.
 *   **CSS3**:
-    *   Flexbox и Grid для макетов.
-    *   CSS переменные для удобного управления цветами и размерами.
-    *   Адаптивная верстка (Mobile First).
+    *   Flexbox and Grid for layouts.
+    *   CSS variables for easy color and size management.
+    *   Responsive design (Mobile First).
 *   **JavaScript (Vanilla)**:
-    *   Обработка событий скролла и кликов.
-    *   Intersection Observer API для анимаций.
+    *   Scroll and click event handling.
+    *   Intersection Observer API for animations.
+    *   Custom preloader logic for image optimization.
 
-## 📂 Структура Проекта
+## 📂 Project Structure
 
 ```text
 yk_lawn/
-├── assets/          # Изображения и ресурсы (например, hero_lawn.png)
+├── assets/          # Images and resources (e.g., hero_lawn.png)
 ├── styles/
-│   └── index.css    # Основной файл стилей
-├── index.html       # Главная страница сайта
-└── README.md        # Документация проекта
+│   ├── index.css    # Core styles
+│   └── preloader.css # Preloader specific styles
+├── index.html       # Main landing page
+└── README.md        # Project documentation
 ```
 
-## 🚀 Запуск и Использование
+## 🚀 Getting Started
 
-Проект не требует сборки или установки зависимостей.
+The project requires no build steps or dependency installation.
 
-1.  Скачайте репозиторий.
-2.  Откройте файл `index.html` в любом современном браузере.
+1.  Clone or download the repository.
+2.  Open `index.html` in any modern web browser.
 
-## 📞 Контакты
+## 📞 Contact Information
 
-Контактная информация, представленная на сайте (демо-данные):
+Contact details as shown on the site (demo data):
 
-*   **Телефон**: (614) 555-0123
+*   **Phone**: (614) 537-2697
 *   **Email**: info@columbuslawn.com
-*   **Адрес**: Columbus, OH
+*   **Area**: Columbus, OH
 
 ---
 &copy; 2026 YK LAWN SERVICE.
