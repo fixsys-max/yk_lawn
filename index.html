@@ -58,9 +58,10 @@
     <section class="hero" style="background-image: url('assets/hero_lawn.png');">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Идеальный газон без лишних хлопот</h1>
-            <p>Профессиональный уход за газоном в Колумбусе. Мы делаем всю работу, а вы наслаждаетесь результатом.</p>
-            <div class="hero-buttons">
+            <h1 class="animate-on-scroll">Идеальный газон без лишних хлопот</h1>
+            <p class="animate-on-scroll delay-200">Профессиональный уход за газоном в Колумбусе. Мы делаем всю работу, а
+                вы наслаждаетесь результатом.</p>
+            <div class="hero-buttons animate-on-scroll delay-400">
                 <a href="#contact" class="btn btn-primary">Заказать услугу</a>
                 <a href="#services" class="btn btn-outline">Узнать больше</a>
             </div>
@@ -70,12 +71,12 @@
     <!-- Services Section -->
     <section id="services" class="section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header animate-on-scroll">
                 <h2>Наши Услуги</h2>
                 <p>Полный комплекс работ для вашего участка</p>
             </div>
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card animate-on-scroll delay-100">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -86,7 +87,7 @@
                     <h3>Стрижка газона</h3>
                     <p>Регулярная стрижка для поддержания идеальной высоты и здоровья травы.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card animate-on-scroll delay-200">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -98,7 +99,7 @@
                     <h3>Удобрение и посев</h3>
                     <p>Сезонное внесение удобрений и подсев для густого и зеленого газона.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card animate-on-scroll delay-300">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -111,7 +112,7 @@
                     <h3>Оформление краев</h3>
                     <p>Аккуратная окантовка вдоль дорожек и клумб для завершенного вида.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card animate-on-scroll delay-400">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -130,20 +131,20 @@
     <!-- Why Us Section -->
     <section id="why-us" class="section parallax-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header animate-on-scroll">
                 <h2>Почему выбирают нас</h2>
                 <p>Мы заботимся о вашем газоне как о собственном</p>
             </div>
             <div class="features-grid">
-                <div class="feature-item">
+                <div class="feature-item animate-on-scroll delay-100">
                     <h3>Надежность</h3>
                     <p>Всегда приезжаем вовремя и выполняем работу качественно.</p>
                 </div>
-                <div class="feature-item">
+                <div class="feature-item animate-on-scroll delay-200">
                     <h3>Профессионализм</h3>
                     <p>Опытная команда и современное оборудование.</p>
                 </div>
-                <div class="feature-item">
+                <div class="feature-item animate-on-scroll delay-300">
                     <h3>Честные цены</h3>
                     <p>Прозрачное ценообразование без скрытых платежей.</p>
                 </div>
@@ -229,6 +230,26 @@
             }
 
             lastScrollY = currentScrollY;
+        });
+
+        // Scroll Animation Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Animate only once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(element => {
+            observer.observe(element);
         });
     </script>
 
