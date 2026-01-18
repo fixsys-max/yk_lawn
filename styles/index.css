@@ -120,12 +120,18 @@ nav {
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--primary-color);
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.logo img {
+    height: 110px;
+    width: auto;
+    object-fit: contain;
 }
 
 .nav-links {
